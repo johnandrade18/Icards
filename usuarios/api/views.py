@@ -10,7 +10,7 @@ from usuarios.api.serializers import UsuarioSerializer
 
 
 class UsuarioApiViewSet(ModelViewSet):
-    permission_class = [IsAdminUser]
+    permission_classes = [IsAdminUser]
     serializer_class = UsuarioSerializer
     queryset = Usuario.objects.all()
 
@@ -29,7 +29,7 @@ class UsuarioApiViewSet(ModelViewSet):
 
 
 class UsuarioView(APIView):
-    permission_class = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request):
         serializer = UsuarioSerializer(request.user)
